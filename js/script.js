@@ -1,12 +1,13 @@
 $(function() {
 
-    var url = 'http://api.icndb.com/jokes/random';
+	var prefix = "https://cors-anywhere.herokuapp.com/";
     var tweetLink = "https://twitter.com/intent/tweet?text=";
     var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
 
     /*---------- Download quote ----------*/
     function getQuote() {
-        $.getJSON(quoteUrl, createTweet);
+        $.getJSON(prefix + quoteUrl, createTweet);
+        $.ajaxSetup({ cache: false });
     }
 
     /*---------- Creat tweet ----------*/
